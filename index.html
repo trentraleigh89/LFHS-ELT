@@ -119,6 +119,21 @@
   }
   .section-body { padding-bottom: 28px; }
 
+  /* Lead-section caption — sits inside the white content area above the two Lead cards */
+  .lead-caption {
+    margin: 0 0 18px;
+    padding: 0 0 12px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .lead-caption-title {
+    font-size: 18px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    margin: 0;
+  }
+
   /* ===== Grids ===== */
   .grid-2 {
     display: grid;
@@ -216,7 +231,11 @@
     line-height: 1.55;
     color: var(--body);
     margin: 0 0 10px;
-    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   /* Why-it-matters block */
@@ -227,6 +246,7 @@
     margin: 0 0 12px;
     padding: 10px 0 0;
     border-top: 1px solid var(--hairline-light);
+    flex: 1;
   }
   .card-why .label {
     display: block;
@@ -236,6 +256,13 @@
     text-transform: uppercase;
     font-weight: 500;
     margin-bottom: 4px;
+  }
+  .card-why .why-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   /* Read More button */
@@ -377,7 +404,24 @@
         <p class="section-sub">Two moves that shape the week for LF/HS</p>
       </div>
       <div class="section-body">
+        <div class="lead-caption">
+          <h3 class="lead-caption-title">Life Time Raises 2026 Guidance The Same Week Planet Fitness Cuts It</h3>
+        </div>
         <div class="grid-2">
+
+          <div class="card card-lead">
+            <div class="card-tag"><span class="tag-region">Demand</span><span class="tag-sub">US-CAN-MEX  ·  Health Clubs</span></div>
+            <h3 class="card-headline">Life Time raises 2026 guidance as premium-tier dues hit $230/month</h3>
+            <p class="card-context">May 5: Life Time reported Q1 revenue up 11.7 percent to $788.7M, net income up 15.8 percent to $88.1M. Average monthly dues reached $230, up 10.5 percent YoY. Average revenue per membership rose 10.2 percent to $930. The company raised full-year 2026 guidance: revenue to $3.32B-$3.35B and adjusted EBITDA to $925M-$940M. Shares rose 10.4 percent same day. Capex up 82 percent to $260M as 14 new club openings front-loaded. CEO Akradi called GLP-1s "a home run" for the industry.</p>
+            <div class="card-why">
+              <span class="label">Why it matters</span>
+              <span class="why-text">In the same week Planet Fitness cut value-tier guidance, the premium-tier operator raised guidance and accelerated capex. The K-shaped divergence between US health club tiers is now confirmed by Q1 reports from both ends. Equipment specification at the premium tier remains a durable demand pocket.</span>
+            </div>
+            <div class="card-cta">
+              <a class="read-more" href="https://ir.lifetime.life/news-events/press-releases/detail/1205/life-time-reports-first-quarter-2026-financial-results" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
+              <span class="card-cta-meta">Life Time IR  ·  May 5, 2026</span>
+            </div>
+          </div>
 
           <div class="card card-lead">
             <div class="card-tag"><span class="tag-region">Demand</span><span class="tag-sub">US-CAN-MEX  ·  Health Clubs</span></div>
@@ -385,25 +429,11 @@
             <p class="card-context">May 7: Planet Fitness reported Q1 revenue up 21.9 percent to $337.2M but cut full-year revenue growth guidance to ~7 percent from 9 percent and same-club sales to ~1 percent from 4-5 percent. Net member growth missed during the seasonally critical Q1 sign-up window. Shares fell 31 percent in the steepest one-day drop since the 2015 IPO. The Black Card price increase was paused. Equipment segment revenue rose 123 percent on replacement sales and 14 new club placements.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              The largest US value-tier operator has materially reset 2026 growth assumptions. Slower joins at the entry-tier coincide with continued strength at the premium-tier, marking a clear divergence in operator capex trajectories through 2H 2026.
+              <span class="why-text">The largest US value-tier operator has materially reset 2026 growth assumptions. Slower joins at the entry-tier coincide with continued strength at the premium-tier, marking a clear divergence in operator capex trajectories through 2H 2026.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://investor.planetfitness.com/investors/press-releases/default.aspx" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
               <span class="card-cta-meta">Planet Fitness IR  ·  May 7, 2026</span>
-            </div>
-          </div>
-
-          <div class="card card-lead">
-            <div class="card-tag"><span class="tag-region">Competitive</span><span class="tag-sub">PTON  ·  Hardware Launch</span></div>
-            <h3 class="card-headline">Peloton announces Commercial Series on Precor hardware base</h3>
-            <p class="card-context">May 7: Peloton unveiled a Commercial Series bike and treadmill pairing Precor industrial hardware with Peloton software, launching Q2 FY27 across six countries. Commercial Business Unit grew 14 percent YoY against a stated 3 percent share of the $10B+ global commercial market. CEO Stern: "Peloton is going to the gym."</p>
-            <div class="card-why">
-              <span class="label">Why it matters</span>
-              First time a major connected-fitness brand pairs with industrial-grade commercial hardware at scale. The combination reshapes the named competitive set in the heavy-traffic gym hardware segment.
-            </div>
-            <div class="card-cta">
-              <a class="read-more" href="https://theclipout.com/peloton-gym-equipment-commercial-series/" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
-              <span class="card-cta-meta">The Clip Out  ·  May 10, 2026</span>
             </div>
           </div>
         </div>
@@ -428,7 +458,7 @@
             <p class="card-context">Marriott Q1 worldwide RevPAR rose 4.2 percent on May 6. Luxury up nearly 7 percent in U.S. and Canada; APJ over 7 percent; Greater China nearly 6 percent. Pipeline at a record 618,000 rooms, over half international. Middle East RevPAR down over 30 percent in March, guided down ~50 percent in Q2.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              Hospitality amenity demand is broad-based at chain scale, with APJ leading and MEIA presenting a near-term timing risk for hospitality fitness pipeline.
+              <span class="why-text">Hospitality amenity demand is broad-based at chain scale, with APJ leading and MEIA presenting a near-term timing risk for hospitality fitness pipeline.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://marriott.gcs-web.com/news-releases/news-release-details/marriott-international-reports-first-quarter-2026-results" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -442,7 +472,7 @@
             <p class="card-context">EuropeActive and Deloitte reported the European fitness market at €39 billion. Spain alone reached €3.24 billion in 2025 at 16.5 percent penetration, with 88 percent of operators expecting 2026 growth. Mid-tier consolidation is accelerating across Iberia and the UK.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              EMEA chain share is rising and procurement decisions are concentrating among fewer, larger buyers. Estate standardization in the wake of consolidation reshapes how equipment decisions are made in the region.
+              <span class="why-text">EMEA chain share is rising and procurement decisions are concentrating among fewer, larger buyers. Estate standardization in the wake of consolidation reshapes how equipment decisions are made in the region.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://www.healthclubmanagement.co.uk/health-club-management-press-releases/technogym-grows-double-digit/362901" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -456,7 +486,7 @@
             <p class="card-context">AvalonBay Q1 2026 results released late April: core FFO of $2.83 per share exceeded outlook on lower expenses and higher development NOI. CEO Schall said new market-rate apartment deliveries are expected at "historically low levels for the foreseeable future." $188M started in new developments during the quarter, with 25 wholly-owned communities under construction totaling 8,673 homes. Strongest markets: New York metro and Northern California.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              Tight supply is supporting premium MUH operator capex against a backdrop of declining overall completions. Equipment specification decisions are increasingly concentrated among well-capitalized REITs continuing to build, even as broader new-build volume contracts.
+              <span class="why-text">Tight supply is supporting premium MUH operator capex against a backdrop of declining overall completions. Equipment specification decisions are increasingly concentrated among well-capitalized REITs continuing to build, even as broader new-build volume contracts.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://www.multifamilydive.com/news/reit-earnings-call-apartment-supply/818766/" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -470,7 +500,7 @@
             <p class="card-context">Hyatt Q1 2026 (April 30): system-wide RevPAR up 5.4 percent, all-inclusive Net Package RevPAR up 7.4 percent. Greater China up 12 percent, APAC ex-China up 11 percent. Premium customer leisure demand up approximately 7 percent. Record development pipeline of ~151,000 rooms, up 9 percent. Full-year RevPAR outlook raised to 2-4 percent. World of Hyatt loyalty hit 66M members, up 18 percent, accounting for nearly half of occupied rooms.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              The third major hotel parent to confirm luxury-tier strength alongside APAC and Greater China momentum. Hyatt's wellness-brand portfolio (Miraval, all-inclusive, soft lifestyle) is leading the chain. Hospitality fitness specification at the premium tier remains a durable demand pocket.
+              <span class="why-text">The third major hotel parent to confirm luxury-tier strength alongside APAC and Greater China momentum. Hyatt's wellness-brand portfolio (Miraval, all-inclusive, soft lifestyle) is leading the chain. Hospitality fitness specification at the premium tier remains a durable demand pocket.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://newsroom.hyatt.com/Q1-2026-Earnings" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -484,7 +514,7 @@
             <p class="card-context">2025 college stadium projects reached $2.4B, with 2026 projected over $3B. Penn State Abington approved a $25M athletics renovation on May 8. NIL and revenue-sharing at $2.25B for 2025-26 is pulling capital toward player compensation and premium seating, tightening athletic department procurement scrutiny.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              Collegiate facility demand remains durable but ROI scrutiny is tightening. Lifecycle-cost economics carry more weight in athletic-department procurement than at any point in the prior decade.
+              <span class="why-text">Collegiate facility demand remains durable but ROI scrutiny is tightening. Lifecycle-cost economics carry more weight in athletic-department procurement than at any point in the prior decade.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://www.psu.edu/news/administration/story/trustees-approve-25-million-renovation-athletics-building-penn-state-abington" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -514,7 +544,7 @@
             <p class="card-context">HRC steel closed at $1,121 per ton on May 11, up 26 percent year-over-year and 3.2 percent in the past month. The May 4 print of $1,135 was the highest since January 2024. Four-week gain stands at 5 percent.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              Sustained pressure on a primary domestic input cost. Margin implications carry into 2H planning and model-year decisions.
+              <span class="why-text">Sustained pressure on a primary domestic input cost. Margin implications carry into 2H planning and model-year decisions.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://tradingeconomics.com/commodity/hrc-steel" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -528,7 +558,7 @@
             <p class="card-context">EUR/USD at 1.1785 on May 11, up 6.3 percent YoY and strongest since April. The U.S. Dollar Index sits near 98.25, on pace for a ~10 percent annual decline, the softest year in about eight. ECB pricing in a June rate hike adds to the rate differential.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              US-manufactured product carries pricing headroom against EUR-priced competitors in EMEA and APJ markets through the current FX cycle.
+              <span class="why-text">US-manufactured product carries pricing headroom against EUR-priced competitors in EMEA and APJ markets through the current FX cycle.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://tradingeconomics.com/euro-area/currency" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -542,11 +572,11 @@
             <p class="card-context">May 5: President Trump warned the EU of "much higher" tariffs unless EU tariffs on US goods are removed by July 4. Commercial fitness peers with EU-sourced components carry landed-cost exposure that US-made product does not share.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              A material policy date in early July could differentiate US-manufactured product against EU-component competitors in the back half of 2026.
+              <span class="why-text">A material policy date in early July could differentiate US-manufactured product against EU-component competitors in the back half of 2026.</span>
             </div>
             <div class="card-cta">
-              <a class="read-more" href="https://www.forex.com/en/news-and-analysis/eur-usd-forecast-currency-pair-of-the-week-may-5-2026/" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
-              <span class="card-cta-meta">Forex.com market note  ·  May 5, 2026</span>
+              <a class="read-more" href="https://www.cnbc.com/2026/05/08/trump-tariffs-trade-eu-europe-deal.html" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
+              <span class="card-cta-meta">CNBC  ·  May 8, 2026</span>
             </div>
           </div>
 
@@ -572,7 +602,7 @@
             <p class="card-context">Q3 FY26 results May 7: total revenue $631M, Commercial Business Unit up 14 percent YoY for the third consecutive quarter. Commercial Series pairs Precor industrial hardware with Peloton software and content. Stated 3 percent share of $10B+ global commercial market.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              Peloton's Precor base addresses its commercial durability gap; brand strength pulls retail-side consideration into commercial specification. The combination is materially different from prior Peloton commercial efforts.
+              <span class="why-text">Peloton's Precor base addresses its commercial durability gap; brand strength pulls retail-side consideration into commercial specification. The combination is materially different from prior Peloton commercial efforts.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://investor.onepeloton.com/news-releases/news-release-details/peloton-announces-q3-fy2026-financial-results" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -586,7 +616,7 @@
             <p class="card-context">Q1 revenue €236.8M, up 10.1 percent YoY (12.6 percent constant FX). Commercial segment up 10.8 percent. Italy led at 20.7 percent, APAC at 14.4 percent, MEIA at 13.5 percent. Multi-year Google Cloud generative-AI partnership announced. TIME 100 Most Influential Companies inclusion.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              Strong global momentum with notable Americas softness. The Google Cloud partnership signals platform-scale ambition beyond device-level features.
+              <span class="why-text">Strong global momentum with notable Americas softness. The Google Cloud partnership signals platform-scale ambition beyond device-level features.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://corporate.technogym.com/en/investor-relations/news-and-events/press-releases" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -600,11 +630,11 @@
             <p class="card-context">Providence Equity-backed VivaGym closed the acquisition of Synergym, creating a leading southern European mid-market platform. Combined with VivaGym's UK presence, the group spans Iberia and the UK. Spain's market reached €3.24B in 2025.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              Another PE-backed Iberian roll-up concentrates procurement decisions among fewer, larger buyers. Estate standardization following the merger typically opens a 6-12 month conversion window.
+              <span class="why-text">Another PE-backed Iberian roll-up concentrates procurement decisions among fewer, larger buyers. Estate standardization following the merger typically opens a 6-12 month conversion window.</span>
             </div>
             <div class="card-cta">
-              <a class="read-more" href="https://www.fitgearsource.com/fitness-equipment-industry-weekly-news-7/" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
-              <span class="card-cta-meta">Industry brief  ·  May 2026</span>
+              <a class="read-more" href="https://www.provequity.com/news/vivagym-acquires-synergym-accelerate-its-long-term-growth-iberia" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
+              <span class="card-cta-meta">Providence Equity  ·  Apr 27, 2026</span>
             </div>
           </div>
 
@@ -614,7 +644,7 @@
             <p class="card-context">Marriott named Jen Mason CFO succeeding retiring Leeny Oberg; she led the May 6 earnings call. Hilton restructured ahead of Chris Silcock's retirement: Laura Fuentes to Chief Brand Officer, new CTO role created. Both committed to elevated 2026 digital and AI investment.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              Dual finance-and-tech rotations at the two largest global brands coincide with raised digital spend, with implications for brand-standard refresh cycles in the renovation window ahead.
+              <span class="why-text">Dual finance-and-tech rotations at the two largest global brands coincide with raised digital spend, with implications for brand-standard refresh cycles in the renovation window ahead.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://www.hoteldive.com/news/marriott-q1-2026-earnings/819442/" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
@@ -628,11 +658,11 @@
             <p class="card-context">Zwift closed its acquisition of Rouvy, combining gamified virtual cycling with real-world video routes. Both platforms continue operating independently. Arrives alongside Technogym's RUN X / World Athletics treadmill championship positioning indoor running as a competitive format.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              Standardized digital fitness categories are forming. Equipment specifications are increasingly required to play with multiple platforms rather than ship as closed ecosystems.
+              <span class="why-text">Standardized digital fitness categories are forming. Equipment specifications are increasingly required to play with multiple platforms rather than ship as closed ecosystems.</span>
             </div>
             <div class="card-cta">
-              <a class="read-more" href="https://www.fitgearsource.com/fitness-equipment-industry-weekly-news-7/" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
-              <span class="card-cta-meta">Industry brief  ·  May 2026</span>
+              <a class="read-more" href="https://news.zwift.com/en-WW/264934-zwift-accelerates-mission-to-make-more-people-more-active-more-often-with-the-acquisition-of-rouvy/" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
+              <span class="card-cta-meta">Zwift Newsroom  ·  Apr 29, 2026</span>
             </div>
           </div>
 
@@ -642,7 +672,7 @@
             <p class="card-context">Technogym partnered with Google Cloud to integrate generative AI across 38M users. Peloton announced 1,400+ Spotify-distributed classes and first AI-dubbed instructor programs in German and Spanish. Marriott committed 30-35 percent of 2026 investment spend to digital technology.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              AI is consolidating from individual product features into ecosystem-level platforms. Commercial buyers are increasingly selecting on platform strength alongside device-level specifications.
+              <span class="why-text">AI is consolidating from individual product features into ecosystem-level platforms. Commercial buyers are increasingly selecting on platform strength alongside device-level specifications.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://corporate.technogym.com/en/investor-relations/news-and-events/press-releases" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
