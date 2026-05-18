@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LFHS Executive Intelligence Brief — Week 19, 2026</title>
+<title>LFHS Executive Intelligence Brief — Week 20, 2026</title>
 <style>
   :root {
     --conf: #a6192e;
@@ -51,22 +51,29 @@
   }
   .ink-stripe { height: 3px; background: var(--ink); }
   .masthead {
-    padding: 28px 36px 24px;
+    padding: 36px 36px 20px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 32px;
   }
-  .left-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
-  .logo-wrap { width: 240px; max-width: 100%; }
+  .left-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+  .logo-wrap { width: 260px; max-width: 100%; margin: 0; }
   .logo-wrap svg { width: 100%; height: auto; display: block; }
+  .title-block { display: flex; flex-direction: column; gap: 10px; }
+  .title-accent {
+    width: 48px;
+    height: 3px;
+    background: var(--conf);
+  }
   .doc-title {
-    font-size: 22px;
+    font-size: 34px;
     color: var(--ink);
-    font-weight: 500;
-    letter-spacing: -0.3px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin: 0;
-    line-height: 1.15;
+    line-height: 1.02;
   }
   .right-col { text-align: right; flex-shrink: 0; }
   .week-label { font-size: 10px; letter-spacing: 3px; color: var(--ink); opacity: 0.6; margin-bottom: 2px; }
@@ -81,32 +88,36 @@
     padding: 0 36px;
   }
   .section-header {
-    margin: 0 -36px 22px;
-    padding: 28px 36px 16px;
-    background: var(--grey-band);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 3px solid var(--conf);
+    margin: 0 -36px 26px;
+    padding: 20px 36px 16px;
+    background: #e4e4e4;
+    border-top: 1px solid #cfcfcf;
+    border-bottom: 1px solid #cfcfcf;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     gap: 16px;
     flex-wrap: wrap;
   }
   .section:first-child .section-header { border-top: none; }
-  .section-header-left { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .section-header-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
   .section-number {
-    font-size: 11px;
+    font-size: 22px;
     color: var(--conf);
-    font-weight: 500;
-    letter-spacing: 2px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    border-right: 1px solid #c8c8c8;
+    padding-right: 16px;
   }
   .section-label {
     font-size: 18px;
-    letter-spacing: -0.2px;
+    letter-spacing: 0.3px;
     color: var(--ink);
-    font-weight: 500;
+    font-weight: 700;
     margin: 0;
     line-height: 1.1;
+    text-transform: uppercase;
   }
   .section-sub {
     font-size: 11.5px;
@@ -121,16 +132,33 @@
 
   /* Lead-section caption — sits inside the white content area above the two Lead cards */
   .lead-caption {
-    margin: 0 0 18px;
-    padding: 0 0 12px;
+    margin: 0 0 22px;
+    padding: 0 0 16px;
     border-bottom: 1px solid var(--hairline);
   }
+  .lead-caption-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10.5px;
+    color: var(--conf);
+    letter-spacing: 2.4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .lead-caption-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--conf);
+  }
   .lead-caption-title {
-    font-size: 18px;
+    font-size: 22px;
     color: var(--ink);
-    font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: -0.2px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
     margin: 0;
   }
 
@@ -157,15 +185,66 @@
 
   /* ===== Cards ===== */
   .card {
+    position: relative;
     background: var(--card-bg);
-    border: 1px solid var(--hairline);
-    padding: 14px 16px 12px;
+    border: 1px solid #d4d4d4;
+    border-radius: 12px;
+    padding: 24px 22px 18px;
     display: flex;
     flex-direction: column;
     min-height: 0;
+    overflow: hidden;
+    transition: box-shadow 0.18s ease, transform 0.18s ease;
   }
-  .card-lead { background: var(--grey-bg); border: 1px solid var(--hairline); padding: 16px 18px 14px; }
-  .card-watch { background: var(--grey-bg); border: 1px solid var(--hairline-light); padding: 14px 16px; }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--ink);
+  }
+  .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(50% + 2px);
+    height: 4px;
+    background: var(--conf);
+    clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+  }
+  .card > *:first-child {
+    margin-top: 4px;
+  }
+  .card:hover {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .card-lead {
+    background: #ffffff;
+    border: 1px solid #d8d8d8;
+    border-radius: 16px;
+    padding: 26px 28px 24px;
+    overflow: visible;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .card-lead::before,
+  .card-lead::after { content: none; }
+  .card-lead > *:first-child { margin-top: 0; }
+  .card-lead:hover {
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.06);
+  }
+  .card-watch {
+    background: var(--grey-bg);
+    border: 1px solid #d4d4d4;
+    border-radius: 12px;
+    padding: 18px 20px;
+    overflow: visible;
+  }
+  .card-watch::before,
+  .card-watch::after { content: none; }
+  .card-watch > *:first-child { margin-top: 0; }
 
   /* Card tag row */
   .card-tag {
@@ -219,18 +298,19 @@
   }
 
   .card-headline {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--ink);
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.3;
-    margin: 0 0 8px;
-  }
-  .card-lead .card-headline { font-size: 15.5px; }
-  .card-context {
-    font-size: 12.5px;
-    line-height: 1.55;
-    color: var(--body);
     margin: 0 0 10px;
+    letter-spacing: -0.1px;
+  }
+  .card-lead .card-headline { font-size: 17px; line-height: 1.25; }
+  .card-context {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--body);
+    margin: 0 0 12px;
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
@@ -240,11 +320,11 @@
 
   /* Why-it-matters block */
   .card-why {
-    font-size: 12px;
+    font-size: 12.5px;
     color: var(--ink);
-    line-height: 1.5;
-    margin: 0 0 12px;
-    padding: 10px 0 0;
+    line-height: 1.55;
+    margin: 0 0 14px;
+    padding: 12px 0 0;
     border-top: 1px solid var(--hairline-light);
     flex: 1;
   }
@@ -273,32 +353,46 @@
   .read-more {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-size: 10.5px;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    font-weight: 500;
-    color: var(--conf);
+    font-weight: 600;
+    color: #4a4a4a;
     text-decoration: none;
-    border: 1px solid var(--conf);
-    padding: 5px 10px;
-    transition: background 0.12s, color 0.12s;
+    border: 1px solid #b8b8b8;
+    border-radius: 6px;
+    padding: 7px 12px;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
     background: transparent;
   }
-  .read-more:hover { background: var(--conf); color: #fff; }
-  .read-more .arrow { font-size: 12px; line-height: 1; }
+  .read-more:hover {
+    background: var(--conf);
+    border-color: var(--conf);
+    color: #ffffff;
+  }
+  .read-more .arrow {
+    font-size: 13px;
+    line-height: 1;
+    color: var(--conf);
+    transition: transform 0.15s ease, color 0.18s ease;
+  }
+  .read-more:hover .arrow {
+    transform: translateX(2px);
+    color: #ffffff;
+  }
   .card-cta-meta {
     display: block;
     font-size: 10px;
     color: var(--muted-light);
-    margin-top: 6px;
+    margin-top: 8px;
     letter-spacing: 0.2px;
   }
 
   /* Watch list specific */
   .card-watch .watch-text {
-    font-size: 12.5px;
-    line-height: 1.55;
+    font-size: 13px;
+    line-height: 1.6;
     color: var(--body);
     margin: 0;
   }
@@ -335,9 +429,10 @@
     body { background: #fff; padding: 0; font-size: 11px; }
     .page { box-shadow: none; max-width: none; }
     .card, .section { break-inside: avoid; }
+    .card, .card-lead, .card-watch { box-shadow: none; }
     .grid-3, .grid-2 { gap: 8px; }
-    .section-header { background: #fff; border-bottom-color: var(--conf); }
-    .read-more { border-color: var(--conf); color: var(--conf); background: #fff; }
+    .section-header { background: #f4f4f4; border-color: #cfcfcf; }
+    .read-more { border-color: #d0d0d0; color: var(--ink); background: #fff; }
   }
 
   /* ===== Mobile ===== */
@@ -357,8 +452,12 @@
     .right-col { text-align: left; }
     .issue-meta { min-width: 0; }
     .week-num { font-size: 40px; }
+    .doc-title { font-size: 26px; letter-spacing: 1.5px; }
     .section { padding: 0 18px; }
-    .section-header { margin: 0 -18px 18px; padding: 22px 18px 14px; }
+    .section-header { margin: 0 -18px 18px; padding: 18px 18px 14px; }
+    .section-number { font-size: 18px; padding-right: 12px; }
+    .section-label { font-size: 15px; }
+    .lead-caption-title { font-size: 18px; }
     .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 10px; }
     .grid-3 > .card,
     .grid-3 > .card:nth-last-child(2):nth-child(4),
@@ -380,13 +479,16 @@
       <div class="logo-wrap">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1814.17 464.88" aria-label="Life Fitness / Hammer Strength"><defs><style>.cls-1{fill:#a6192e;}.cls-1,.cls-2,.cls-3,.cls-4{stroke-width:0px;}.cls-2{fill:#939598;}.cls-3{fill:none;}.cls-4{fill:#000;}</style></defs><g id="Hammer_Strength_Logo"><path class="cls-4" d="M1693.24,245.7c0-1.84-1.09-2.65-3.3-2.65h-3.56v9.33h1.41v-4.05h1.63l2.48,4.05h1.58l-2.65-4.11c1.37-.17,2.42-.9,2.42-2.56ZM1687.78,247.13v-2.88h1.94c.99,0,2.05.21,2.05,1.37,0,1.43-1.08,1.51-2.28,1.51h-1.7Z"/><path class="cls-4" d="M1689.5,239.6c-4.45,0-8.21,3.45-8.21,8.08s3.76,8.1,8.21,8.1,8.18-3.41,8.18-8.1-3.76-8.08-8.18-8.08ZM1689.5,254.45c-3.7,0-6.58-2.87-6.58-6.76s2.87-6.75,6.58-6.75,6.54,2.92,6.54,6.75-2.88,6.76-6.54,6.76Z"/><polygon class="cls-4" points="1267.39 260.11 1279.69 260.11 1279.69 327.27 1300.63 327.27 1300.63 260.11 1312.93 260.11 1312.93 239.49 1267.39 239.49 1267.39 260.11"/><polygon class="cls-4" points="1614.44 239.49 1568.89 239.49 1568.89 260.12 1581.2 260.12 1581.2 327.27 1602.13 327.27 1602.13 260.12 1614.44 260.12 1614.44 239.49"/><polygon class="cls-4" points="1472.99 262.73 1449.01 239.45 1429.52 239.45 1429.52 327.32 1449.01 327.32 1449.01 268.09 1472.99 291.64 1472.99 327.32 1492.48 327.32 1492.48 239.45 1472.99 239.45 1472.99 262.73"/><polygon class="cls-4" points="1656.16 273.09 1639.37 273.09 1639.37 239.49 1618.71 239.49 1618.71 273.08 1613.52 273.08 1618.71 293.76 1618.71 327.35 1639.37 327.35 1639.37 293.75 1656.16 293.75 1656.16 327.37 1676.82 327.37 1676.82 239.49 1656.16 239.49 1656.16 273.09"/><path class="cls-4" d="M1426.32,293.75l-5.1-20.57h-22.96v-13.09h26.75v-20.65h-47.41v33.74h-3.39c-.55-18.13-14.95-32.74-32.99-33.68l-23.77-.09v87.87h20.31v-20.79l13.44,20.79h23.81l-16.46-25.42c8.84-4.84,13.94-12.12,15.2-21.95l3.86,13.76v33.64h47.41v-20.65h-26.75v-12.96l28.06.04ZM1341.62,287.59h-3.87v-27.52h3.86c7.43,0,13.45,6.88,13.45,14.3s-6.02,13.22-13.44,13.22Z"/><path class="cls-4" d="M1496.13,282.52s-.11,46.88,48.43,46.88c7.17,0,12.47-.19,19.99-2.28v-53.32h-20.59v32.35s-24.33.49-24.33-23.42c0-34.71,44.91-22.54,44.91-22.54v-20.57c-5.64-1.55-12.74-2.55-20.73-2.72-49.52-1.01-47.7,45.62-47.7,45.62Z"/><path class="cls-4" d="M1254.95,237.61c3.1.37,5.73.99,7.9,1.67v20.95c-10.47-1.93-14.45-.81-16.48,1.56-2.76,3.21-.49,6.63,1.54,8.48l13.07,8.97c6.74,5.59,10.44,12.08,10.43,19.66-.06,32.14-30.93,30.37-30.93,30.37-7,0-13.03-1.03-18.78-1.9v-21.03c12.74,1.5,24.17,4.66,25.17-5.57-.29-9.9-8.91-10.78-16.97-17.05,0,0-8.46-6.76-8.99-17.36,0,0-1.37-13.03,8.94-21.54,4.24-3.5,9.65-6.49,15.65-7.32,0,0,4.42-.6,9.44.12Z"/><polygon class="cls-4" points="1543.84 225.26 1591.25 225.26 1591.25 204.61 1564.5 204.61 1564.5 191.65 1592.56 191.7 1587.46 171.13 1564.5 171.13 1564.5 158.04 1591.25 158.04 1591.25 137.39 1543.84 137.39 1543.84 171.13 1538.74 171.13 1543.84 191.62 1543.84 225.26"/><path class="cls-4" d="M1616.09,204.47l13.44,20.79h23.81l-16.46-25.42c10.81-5.92,15.69-14.43,15.69-27.61,0-18.62-14.63-33.79-33.01-34.75l-23.77-.09v87.87h20.31v-20.79ZM1616.09,158.04h3.86c7.43,0,13.45,6.88,13.45,14.3s-6.02,13.22-13.44,13.22h-3.87v-27.52Z"/><polygon class="cls-4" points="1483.2 181.48 1498.85 211.88 1514.44 181.58 1519.14 225.26 1539.88 225.26 1530.35 137.39 1515.54 137.39 1498.85 171.16 1482.35 137.39 1467.34 137.39 1457.75 225.26 1478.49 225.26 1483.2 181.48"/><polygon class="cls-4" points="1454.38 225.26 1444.84 137.39 1430.03 137.39 1413.34 171.16 1396.84 137.39 1381.84 137.39 1372.24 225.26 1392.98 225.26 1397.7 181.48 1413.34 211.88 1428.93 181.58 1433.63 225.26 1454.38 225.26"/><polygon class="cls-4" points="1247.42 248.18 1268.08 225.24 1268.08 191.6 1284.87 191.6 1284.87 225.26 1305.53 225.26 1305.53 175.48 1305.53 171.03 1305.53 137.39 1284.87 137.39 1284.87 171.05 1268.08 171.05 1268.08 137.39 1247.42 137.39 1247.42 248.18"/><path class="cls-4" d="M1310.34,191.51v33.75h20.79v-33.76h16.87v33.76h20.66v-61.92c0-16.1-13.05-29.15-29.16-29.15s-29.16,13.05-29.16,29.15v7.65h-5.58l5.58,20.52ZM1331.12,163.25c0-4.66,3.78-8.43,8.44-8.43s8.44,3.78,8.44,8.43v7.69h-16.87v-7.69Z"/></g><g id="Gray_Divider"><rect class="cls-2" x="956.34" y="229.92" width="255.59" height="4.79" transform="translate(186.06 882.53) rotate(-48)"/></g><g id="LifeFitness_Logo"><path class="cls-1" d="M357.52,290.29c5.28,11.5,3.28,10.38-3.96,8.33-81.73-23.01-148.01-22.61-177.76-17.07-6.75,5.16-14.38,9.63-19.54,12.11-9.7,4.65-9.92,4.46-15.78-4.17-4.29-6.32-3.98-7.15.4-10.32,4.36-3.17,15.47-8.33,28.96-10.71,38.28-36.53,76.03-65.57,100.47-82.48,11.4-8.07,20.44-13.91,26.05-17.1,12.62-7.19,16.23-6.24,28.16-3.58,14.65,3.28,13.82,5.84,5.56,11.91-5.48,4.01-10.32,7.29-16.27,11.11-7.91,5.07-7.99,4.61-19.48,4.38-32.11,19.35-64.61,45.19-97.1,72.19,17.77-1.74,42.67-1.99,70.19.24-.96-1.56-1.58-3.9-2.21-5.86-3.27-10.12-3.19-8.81.3-12.8,12.8-14.58,36.19-35.97,41.84-40.43,5.65-4.46,7.93-7.46,13.39,2.68,4.87,9.04,5.06,9.82-.89,14.58-5.95,4.76-37.97,32.41-44.82,40.14-.81.92-1.55,1.62-2.22,2.15,21.32,1.96,44.01,5.4,66.06,10.79,14.2,3.48,13.59,2.88,18.66,13.9ZM440.34,249.94c-4.57,3.24-18.89,12.87-39.39,20.56-10.9,4.09-18.92-.75-22.79-6.99-3.87-6.26-4.5-9.91-.89-15.17,1.95-2.86,4.06-5.71,6.29-8.52-5.42-.7-15.17-1.8-23.66-3.6-13.08,12.91-22.4,22.43-31.32,31.75-2.62,2.74-4.82,3.9-8.93-2.39-4.46-6.85-4.18-7.65-.89-11.56,8.22-9.8,13.54-15.15,21.26-23.25-10.27-4.43-11.79-10-12.67-15.76-.59-3.87.89-4.16,3.57-2.98,1.87.83,10.76,3.66,21.21,6.42,9.5-9.38,24.31-22.95,32.33-30.01,17.56-15.47,29.76-24.1,45.83-25,12.47-.7,19.4,5.74,20.09,16.67.29,4.76-1.89,12.14-5.17,14.67-3.16,2.45-6.22,1.18-7.74-2.68-3.46-8.77-6.44-12.25-21.18-2.48-11.86,7.86-30.86,22.76-42.85,33.7,5.41,1.08,15.25,2.23,22.09,3.05,9.21-9.15,21.02-17.53,30.94-21.62,17.26-7.15,27.11.49,30.53,4.47,7.02,8.18,1.76,21.43-5.66,25.12-15.07,7.49-33.43,7.7-45.96,7.13-4.25,4.67-7.93,9.3-10.1,13.13-.2.35.1.78.5.72,14.73-2.19,33.37-7.79,40.65-9.83,7.44-2.07,8.08,1.47,3.9,4.43ZM418.47,226.23c6.64-.45,14.64-1.06,21-2.6,12.09-2.9,5.58-14.35-5.31-7.54-2.78,1.17-10.22,5.4-15.69,10.14ZM323.81,198.18c.1,2.07-.82,6.08,7.59,4.47,18.26-3.49,18.12-3.49,24.38-4.95,6.15-1.43,6.49-2.4,5.41-10.83-.8-6.28-2.47-6.97-8.23-5.4-5.76,1.57-10.64,3.4-25.13,10.37-3.96,1.91-4.17,3.02-4.01,6.35ZM944.75,217.26c-1.64.4-4.98,1.06-8.63,1.71-8.28,1.47-7.38,1.43-11.16-3.12-9.52-1.64-17.04.9-14.68,5.95,2.93,6.24,22.56,15.72,22.56,31.19,0,11.11-16.83,17.76-34.29,18.99-12.33.88-16.18-2.94-19.66-7.08-4.47-5.32-9.39-12.13-1.14-10.97,8.79,1.24,33.05,1.79,32.07-4.98-1.09-7.69-16.88-11.96-20.6-22.65-8.06,2.98-17.35,6.01-23.69,9.05,3.25,2.8,6.52,6.65,6.52,12.24,0,12.69-12.83,28.45-53.11,23.54-4.8-.59-5.82-1.42-8.6-7.37-2.77-5.95-2.25-8.34,3.76-11.81,7.4-4.28,18.23-9.73,30.21-15.14-2.18-1.71-4.56-3.67-6.74-6.18-30.23,21.22-53.28,40.95-69.84,41.17-6.74,0-10.07-9.95-11.06-17.6l-35.13,16.4c-3.73,2.08-4.89,2.01-9.22-1.37-4.23-3.29-6.43-5.42-6.6-7.62-.11-1.32.5-2.66,1.84-4.3,3.57-4.36,10.43-12.53,21.92-28.78-24.59,10.32-53.44,35.52-58.2,40.28-4.76,4.76-5.33,4.36-10.49-1.59-2.91-3.35-4.26-5.16-4.27-6.9-.02-1.35.78-2.66,2.28-4.63,9.56-12.52,24.58-26.01,35.51-36.3-22.94,16.39-56.61,38.25-70.27,46.76-2.88,1.79-5.86,3.43-8.92,4.9l-1.07.52c-.11.04-.22.07-.33.11h0c-4.07,1.21-6.03-.58-9.94-4.21-5.16-4.76-6.15-6.15-2.39-10.32,5.93-6.56,17.27-18.49,32.01-34.14-23.93,16.66-65.01,40.99-73.94,45.98-8.79,4.91-10.32,3.58-15.47-1.58-5.16-5.16-6.53-8.53-2.77-12.7,15.08-16.67,42.86-46.03,48.4-50.39,5.57-4.36,6-2.18,10.33,5.16,3.97,6.75,5.16,7.94,1.18,11.51-3.96,3.57-14.28,13.09-26.59,25.79,24.44-14.04,54.19-30.03,71.09-39.97l-8.58,1.14c-4.63.79-10.06,1.7-13.28,2.18-1.11.17-2-.91-1.63-1.98.77-2.23,4.26-7.19,9.49-8.6,7.14-1.92,13.96-3.61,20.33-5.08,3.14-.78,6.62-1.59,10.47-2.43,9.06-9.42,19.49-19.76,21.84-21.83,2.52-2.52,4.27-4.2,5-4.77,5.56-4.36,5.99-2.18,10.32,5.16,3.27,5.56,4.59,7.35,2.76,9.81,0,0-2.96,3.04-5.61,5.63,43.15-4.78,83.98-7.47,117.38-5.13,7.52.52,8.73,2.37,13.09,7.93,4.36,5.56,7.65,9-1.19,8.33-38.55-2.9-75.56-2.53-109.95.33l-5.68.5c-10.13.93-20.62,2.15-30.24,3.5-16.31,15.87-39.91,39.54-48.15,48.04h0s0,0,0,0l77.91-45.89c4.24-2.83,5.59-2.81,10.54,2.76,2.57,2.89,2.75,4.4,2.86,6.26.06.84-.93,2.99-1.59,3.93-1.31,1.84-2.06,2.06-7.57,7.57,8.38-5.58,32.61-19.93,38.74-21.9,2.7-.87,3.64-.89,7.71,3.27,3.98,4.07,3.95,4.98.38,11.45-3.44,6.25-16.98,25.12-21.38,31.08,1.85-.73,10.49-3.76,17.37-6.34l2.31-6.31c6.87-15.71,22.2-33.61,44.92-33.61,11.11,0,20.22,4.1,20.22,16.39,0,9.76-29.9,22.23-49.27,28.75-.49,3.15-.35,4.17.03,5.32,1.21,1.93,4.16.82,8.41-.98,6.84-2.88,36.32-17.74,50.46-25.99l-.75-1.24c-5.05-11.93,4.89-22.18,30.38-22.18,4.36,0,10.82.97,14.55,2.6,3.92,1.72,3.86,1.8,4.62,6.7.89,5.75-.89,7.64-5.95,6.75-2.24-.4-6.03-.62-15.55-.62-12.09,0-13.31,3.88-2.41,12.89,9.09-3.77,20.68-7.31,29.57-10.07-.05-.82,0-1.65.18-2.45,2.34-10.32,15.45-16.93,30.33-15.73,24.6,1.98,24.79,2.57,25.98,6.74.69,2.4,1,4.12,1.22,5.36.47,2.67.69,2.67-1.47,3.19ZM778.96,233.98c27.37-11.26,40.75-19.28,30.82-21.27-8.7-1.74-23.08,9.64-30.82,21.27ZM850.92,243.26c-8.57,4.76-22.63,11.74-29.94,16.45,26.51,2.19,36.51-9.29,29.94-16.45ZM558.84,226.37c6.39.26,6.24-2.03,3.05-10.44-2.77-7.29-3.48-7.88-7.45-7.85-7.74.06-18.05.52-29.42,1.41,8.56-8.33,16.58-15.58,23.4-20.95l10.54-7.38c27.81-2.07,57.08-2.63,87.44-.35,8.85.67,5.56-2.77,1.19-8.33-4.36-5.56-5.57-7.41-13.09-7.93-17.86-1.25-37.63-1.37-58.65-.54-26.24,2.27-51.56,5.91-77.02,10.5-7.89,1.43-6.69,2.88-3.65,9.1.98,2.01,1.89,3.4,2.78,4.34,1.93,2.06,3.73,2.02,5.9,1.68,5.41-.83,11.26-1.89,17.47-3.01,0,0,.41-.08,1.13-.22-4.49,3.88-8.56,7.88-8.56,7.88-6.22,5.47-12.92,11.78-19.75,18.55-7.22,1.01-14.34,2.21-21.05,3.58-6.79,1.4-6.07,1.9-3.75,8.65,1.97,5.71,3.15,7.31,6.83,6.15.06.09,0,0,.06.08-14.32,15.34-27.89,31.29-37.47,44.39-3.46,4.72-4,7.16-.92,15.75,3.66,10.2,5.09,10.67,9.42,4.95,12.56-16.51,36.53-44.43,59.97-68.92,15.08-1.11,31.07-1.92,51.59-1.1ZM623.75,183.05c-7.34,2.48-6.87,1.97-20.49,8.53-3.72,1.79-3.87,3.22-3.72,6.34.09,1.95.27,6.93,8.1,5.06,13.95-3.34,13.04-3.06,18.76-4.66,5.72-1.6,6.1-2.25,5.08-10.18-.76-5.9-2.33-6.55-7.74-5.08Z"/></g><g id="Bounding_Box"><rect class="cls-3" width="1814.17" height="464.88"/></g></svg>
       </div>
-      <h1 class="doc-title">Executive Intelligence Brief</h1>
+      <div class="title-block">
+        <div class="title-accent"></div>
+        <h1 class="doc-title">Executive Intelligence Brief</h1>
+      </div>
     </div>
     <div class="right-col">
       <div class="week-label">WEEK</div>
-      <div class="week-num">19</div>
+      <div class="week-num">20</div>
       <div class="issue-meta">
-        May 4 – 10, 2026<br>
+        May 11 – 17, 2026<br>
         Worldwide
       </div>
     </div>
@@ -401,10 +503,10 @@
           <span class="section-number">01</span>
           <h2 class="section-label">The Lead</h2>
         </div>
-        <p class="section-sub">Two moves that shape the week for LF/HS</p>
       </div>
       <div class="section-body">
         <div class="lead-caption">
+          <div class="lead-caption-eyebrow">The Headliner</div>
           <h3 class="lead-caption-title">Life Time Raises 2026 Guidance The Same Week Planet Fitness Cuts It</h3>
         </div>
         <div class="grid-2">
@@ -495,16 +597,16 @@
           </div>
 
           <div class="card">
-            <div class="card-tag"><span class="tag-region">Global</span><span class="tag-sub">Hospitality</span></div>
-            <h3 class="card-headline">Hyatt Q1 luxury-led growth with premium leisure demand up 7 percent</h3>
-            <p class="card-context">Hyatt Q1 2026 (April 30): system-wide RevPAR up 5.4 percent, all-inclusive Net Package RevPAR up 7.4 percent. Greater China up 12 percent, APAC ex-China up 11 percent. Premium customer leisure demand up approximately 7 percent. Record development pipeline of ~151,000 rooms, up 9 percent. Full-year RevPAR outlook raised to 2-4 percent. World of Hyatt loyalty hit 66M members, up 18 percent, accounting for nearly half of occupied rooms.</p>
+            <div class="card-tag"><span class="tag-region">US-CAN-MEX</span><span class="tag-sub">Hospitality</span></div>
+            <h3 class="card-headline">Hyatt names Adam Rohman head of Americas as Pete Sears retires</h3>
+            <p class="card-context">May 13: Hyatt Hotels Corporation announced Adam Rohman as head of Americas effective July 1, 2026. Rohman succeeds Pete Sears, who is retiring after nearly 40 years with the company. The transition gives Hyatt a new senior commercial lead for the Americas region during a year when system-wide RevPAR is guided to 2-4 percent growth and the company's development pipeline sits at a record ~151,000 rooms.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              <span class="why-text">The third major hotel parent to confirm luxury-tier strength alongside APAC and Greater China momentum. Hyatt's wellness-brand portfolio (Miraval, all-inclusive, soft lifestyle) is leading the chain. Hospitality fitness specification at the premium tier remains a durable demand pocket.</span>
+              <span class="why-text">A new regional GM at one of the three major hotel parents shifts the commercial decision-making seat for Americas spec, brand-standard refreshes, and renovation cadence. New leadership typically reviews supplier relationships and standards within the first 12 months.</span>
             </div>
             <div class="card-cta">
-              <a class="read-more" href="https://newsroom.hyatt.com/Q1-2026-Earnings" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
-              <span class="card-cta-meta">Hyatt IR  ·  Apr 30, 2026</span>
+              <a class="read-more" href="https://lodgingmagazine.com/this-weeks-comings-goings-may-13/" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
+              <span class="card-cta-meta">LODGING Magazine  ·  May 13, 2026</span>
             </div>
           </div>
 
@@ -540,29 +642,29 @@
 
           <div class="card">
             <div class="card-tag"><span class="tag-region">Domestic</span><span class="tag-sub">Input Cost</span></div>
-            <h3 class="card-headline">Hot-rolled coil steel up 26 percent YoY, holds above $1,100</h3>
-            <p class="card-context">HRC steel closed at $1,121 per ton on May 11, up 26 percent year-over-year and 3.2 percent in the past month. The May 4 print of $1,135 was the highest since January 2024. Four-week gain stands at 5 percent.</p>
+            <h3 class="card-headline">HRC steel swings 20 percent in 72 hours, prints fresh multi-year high</h3>
+            <p class="card-context">May 12: hot-rolled coil steel dropped to $945 per ton, the lowest since January 2026. By May 15, the contract rebounded to $1,134, the highest since January 2024. Net 12-month change remains up roughly 29 percent. Volatility was driven by mill output discipline questions, Iran-conflict input-cost concerns, and seasonal demand recalibration.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              <span class="why-text">Sustained pressure on a primary domestic input cost. Margin implications carry into 2H planning and model-year decisions.</span>
+              <span class="why-text">Whiplash on a primary domestic input cost. Magnitude of the weekly swing matters more than the level: hedging cadence, surcharge mechanics, and price-lock windows all warrant review.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://tradingeconomics.com/commodity/hrc-steel" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
-              <span class="card-cta-meta">CME / Trading Economics  ·  May 11, 2026</span>
+              <span class="card-cta-meta">CME / Trading Economics  ·  May 15, 2026</span>
             </div>
           </div>
 
           <div class="card">
-            <div class="card-tag"><span class="tag-region">FX</span><span class="tag-sub">Tailwind</span></div>
-            <h3 class="card-headline">Weak dollar improves US-made product competitiveness abroad</h3>
-            <p class="card-context">EUR/USD at 1.1785 on May 11, up 6.3 percent YoY and strongest since April. The U.S. Dollar Index sits near 98.25, on pace for a ~10 percent annual decline, the softest year in about eight. ECB pricing in a June rate hike adds to the rate differential.</p>
+            <div class="card-tag"><span class="tag-region">FX</span><span class="tag-sub">Reversal</span></div>
+            <h3 class="card-headline">Dollar reverses higher as Iran shock prices in ECB hike</h3>
+            <p class="card-context">EUR/USD fell to $1.165 on May 15, the lowest since April and down over 1 percent on the week. Iran-conflict oil pressure has shifted ECB rate-hike expectations: markets now price an 86 percent probability of a June 25bp hike, three full hikes through year-end. The dollar narrative has flipped from "weak-dollar tailwind" to a tighter near-term range, with H2 forecast for EUR/USD averaging 1.16-1.19.</p>
             <div class="card-why">
               <span class="label">Why it matters</span>
-              <span class="why-text">US-manufactured product carries pricing headroom against EUR-priced competitors in EMEA and APJ markets through the current FX cycle.</span>
+              <span class="why-text">The export-pricing tailwind narrative we ran in Week 19 has tightened. EMEA-priced bids may need to reassess sensitivity to a 1-2 percent dollar move. June 11 ECB decision is the next pivot.</span>
             </div>
             <div class="card-cta">
               <a class="read-more" href="https://tradingeconomics.com/euro-area/currency" target="_blank" rel="noopener">Read more <span class="arrow">→</span></a>
-              <span class="card-cta-meta">Trading Economics  ·  May 11, 2026</span>
+              <span class="card-cta-meta">Trading Economics  ·  May 15, 2026</span>
             </div>
           </div>
 
@@ -699,7 +801,7 @@
           <div class="card card-watch">
             <div class="card-tag"><span class="tag-owner">CFO  ·  Pricing</span></div>
             <h3 class="card-headline">Domestic steel cost pressure may warrant 2H pricing review</h3>
-            <p class="watch-text">HRC steel up 26 percent YoY with no near-term reversal signal. Surfaced for CFO consideration around surcharge mechanics, model-year pricing, and contract clauses ahead of fall planning.</p>
+            <p class="watch-text">HRC swung from $945 to $1,134 in 72 hours, a ~20 percent range. Surfaced for CFO consideration around hedging cadence, surcharge mechanics, and price-lock windows ahead of fall planning.</p>
           </div>
 
           <div class="card card-watch">
@@ -726,13 +828,12 @@
 
     <!-- ===== METADATA ===== -->
     <div class="metadata">
-      <div><span class="label">Date range:</span> May 4 – 10, 2026</div>
+      <div><span class="label">Date range:</span> May 11 – 17, 2026</div>
       <div><span class="label">Regions scanned:</span> Worldwide</div>
       <div><span class="label">Recency window:</span> 10-day primary; 30-day backstop</div>
-      <div><span class="label">Findings processed:</span> 52</div>
       <div><span class="label">Net new insights:</span> 13</div>
       <div><span class="label">Paywall cap:</span> 1 of 2 (under threshold)</div>
-      <div class="full"><span class="label">Prepared by:</span> T. Raleigh  ·  <span class="label">Distributed:</span> May 11, 2026, 09:00 CT  ·  <span class="label">Classification:</span> Confidential, ELT only</div>
+      <div class="full"><span class="label">Prepared by:</span> T. Raleigh  ·  <span class="label">Distributed:</span> May 18, 2026, 09:00 CT  ·  <span class="label">Classification:</span> Confidential, ELT only</div>
     </div>
 
   </div>
